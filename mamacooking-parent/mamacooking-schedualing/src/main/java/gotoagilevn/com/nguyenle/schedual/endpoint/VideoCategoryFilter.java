@@ -28,15 +28,6 @@ public class VideoCategoryFilter {
 			}
 		}
 
-		// for (VideoFilterEnum videoFilter : VideoFilterEnum.values()) {
-		// if (videoName.contains(videoFilter.toString())) {
-		// isAccepted = true;
-		// break;
-		// }
-		// }
-		// if (!isAccepted) {
-		// System.out.println("Reject " + video.getName());
-		// }
 		return isAccepted;
 	}
 

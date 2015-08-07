@@ -4,6 +4,7 @@ import gotoagilevn.com.nguyenle.persistence.service.VideoCategoryService;
 import gotoagilevn.com.nguyenle.persistence.service.VideoService;
 import gotoagilevn.com.nguyenle.persistence.vo.Category;
 import gotoagilevn.com.nguyenle.persistence.vo.Video;
+import gotoagilevn.com.nguyenle.schedual.util.VideoCatetoryNameUtil;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class LoggingRejectVideoServiceActivator {
 
 		Category unknowCategory = null;
 		try {
-			unknowCategory = categoryService.findByName("unknow");
+			unknowCategory = categoryService.findByName(VideoCatetoryNameUtil.UNKNOWN_CATEGORY);
 			video.setVideoCategory(unknowCategory);
 			videoService.saveVideoToDatabase(video);
 		} catch (Exception e) {

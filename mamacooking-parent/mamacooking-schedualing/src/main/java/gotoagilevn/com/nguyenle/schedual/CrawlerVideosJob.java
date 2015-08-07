@@ -34,9 +34,10 @@ public class CrawlerVideosJob {
 		/*run clawer4j*/
 		List<VideoChannel> videoChannels = new ArrayList<>();
 		VideoChannel channel1 = new VideoChannel("Am thuc viet nam","https://www.youtube.com/channel/UCxmlfcxN_K2JPbhbN8dB8RQ");
-	//	VideoChannel channel2 = new VideoChannel("Am thuc han quoc","https://www.youtube.com/channel/UCxmlfcxN_K2JPbhbN8dB8RQ");
-	//	videoChannels.add(channel2);
+		VideoChannel channel2 = new VideoChannel("Am thuc han quoc","https://www.youtube.com/channel/UC-2EWHDbHnx5JOeyWfLdIxQ");
 		videoChannels.add(channel1);
+		videoChannels.add(channel2);
+		
 		return videoChannels;
 	}
 	

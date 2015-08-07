@@ -98,7 +98,8 @@ public class MyCrawler extends WebCrawler {
 				String[] name = matcher.group(1).split("\"");
 				Video food = new Video();
 				food.setName(name[0]);
-				food.setUrl(matcher.group(2));
+				//food.setUrl(matcher.group(2));
+				food.setUrl(image[1]);
 				food.setImage("//i.ytimg.com/vi/" + image[1] + "/mqdefault.jpg");
 				foodMap.put(matcher.group(1), food);
 			}
@@ -117,7 +118,8 @@ public class MyCrawler extends WebCrawler {
 	        	String[] images = imageElement.split("=");
 	        	Video food = new Video();
 				food.setName(elements[0]);
-				food.setUrl(matcher.group(1));
+				//food.setUrl(matcher.group(1));
+				food.setUrl(images[1]);
 				food.setImage("//i.ytimg.com/vi/" + images[1] + "/default.jpg");
 				foodMap.put(matcher.group(1), food);
 			}

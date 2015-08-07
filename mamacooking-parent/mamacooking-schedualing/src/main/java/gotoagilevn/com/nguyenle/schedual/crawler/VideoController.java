@@ -22,11 +22,8 @@ public class VideoController {
 		List<Object> crawlersLocalData = controller.getCrawlersLocalData();
 		listVideo = (List<Video>) crawlersLocalData.get(0);
 		if (controller.isFinished()) {
-			System.out.println("Get all video");
+			System.out.println("Get all videos");
 		}
-//		for (Video video : listVideo) {
-//			System.out.println(video.getName());
-//		}
 		return listVideo;
 	}
 

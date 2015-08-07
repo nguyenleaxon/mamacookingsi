@@ -27,8 +27,8 @@ public class ClawingVideoServiceActivator {
 		try {
 		videos =	videoController.startClawringChannel(videoChannel.getChannelUrl());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error(e);
+			
 		}
 		
 
