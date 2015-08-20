@@ -30,6 +30,7 @@ public class VideoConfigureSingleton {
 		config.setMaxPagesToFetch(VideoConstrainsUtil.MAX_PAGES_TO_FETCH);
 		config.setPolitenessDelay(VideoConstrainsUtil.POLITENESS_DEPLAY);
 		config.setUserAgentString(VideoConstrainsUtil.USER_AGENT_STRING);
+	//	config.setResumableCrawling(true);
 		return config;
 	}
 
