@@ -1,5 +1,7 @@
 package gotoagilevn.com.nguyenle.persistence.service.impl;
 
+import java.text.Normalizer;
+
 import gotoagilevn.com.nguyenle.persistence.repository.VideoRepository;
 import gotoagilevn.com.nguyenle.persistence.service.VideoService;
 import gotoagilevn.com.nguyenle.persistence.vo.Video;
@@ -20,7 +22,9 @@ public class VideoServiceImpl implements VideoService {
 	public int saveVideoToDatabase(Video video) {
 
 		try {
-	
+			String videoName = Normalizer.normalize(video.getName(), Normalizer.Form.NFD);
+			String unicodeVideoName = videoName.replaceAll("[^\\x00-\\x7F]", ""); 
+			video.setUnicodeName(unicodeVideoName);
 			videoRepositoryJPA.save(video);
 			LOGGER.info("YAHHHOOOO ");
 		} catch (Exception ex) {

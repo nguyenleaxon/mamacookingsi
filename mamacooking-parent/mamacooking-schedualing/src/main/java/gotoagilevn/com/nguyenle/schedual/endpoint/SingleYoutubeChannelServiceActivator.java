@@ -16,7 +16,7 @@ public class SingleYoutubeChannelServiceActivator {
 	
 	@ServiceActivator
 	public VideoChannel videoChannel (VideoChannel videoChannel) throws Exception {
-		LOGGER.info("Get only one channel by using splitter from list of channel" + videoChannel.getChannelName());
+		LOGGER.info("########  $$$$$$$$ Get only one channel by using splitter from list of channel" + videoChannel.getChannelName());
 		return videoChannel;
 	}
 }

@@ -15,7 +15,8 @@ public class VideoCategoryServiceImpl implements VideoCategoryService{
 	
 	@Override
 	public Category findByName(String name) throws Exception {
-			return categoryRepository.findByName(name);
+			Category test = categoryRepository.findByName(name);
+			return test ;
 	}
 
 	@Override

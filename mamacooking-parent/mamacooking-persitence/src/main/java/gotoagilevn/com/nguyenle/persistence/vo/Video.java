@@ -17,6 +17,7 @@ public class Video implements Serializable {
 	private String name;
 	private String image;
 	private String url;
+	private String unicodeName;
 	
 	@DBRef
 	private Category videoCategory;
@@ -60,5 +61,11 @@ public class Video implements Serializable {
 	public String toString() {
 		
 		return name;
+	}
+	public String getUnicodeName() {
+		return unicodeName;
+	}
+	public void setUnicodeName(String unicodeName) {
+		this.unicodeName = unicodeName;
 	}
 }

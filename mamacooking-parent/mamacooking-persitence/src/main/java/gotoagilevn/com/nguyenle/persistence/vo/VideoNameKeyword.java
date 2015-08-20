@@ -12,7 +12,7 @@ public class VideoNameKeyword implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String name;
-	
+	private String displayName;
 	public VideoNameKeyword() {
 		
 	}
@@ -23,6 +23,14 @@ public class VideoNameKeyword implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 
 	

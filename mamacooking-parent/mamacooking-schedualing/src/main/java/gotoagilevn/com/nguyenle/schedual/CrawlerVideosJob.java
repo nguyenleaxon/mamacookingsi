@@ -1,5 +1,6 @@
 package gotoagilevn.com.nguyenle.schedual;
 
+import gotoagilevn.com.nguyenle.persistence.service.VideoChannelService;
 import gotoagilevn.com.nguyenle.persistence.vo.VideoChannel;
 
 import java.util.ArrayList;
@@ -14,31 +15,32 @@ import org.springframework.stereotype.Component;
 @Component
 public class CrawlerVideosJob {
 
-	private final static Logger LOGGER = Logger.getLogger(CrawlerVideosJob.class.getName()); 
-	
+	private final static Logger LOGGER = Logger
+			.getLogger(CrawlerVideosJob.class.getName());
+
 	@Autowired
 	VideoChannelGateway videoChannelGateway;
-	
 
-	
-	
-	@Scheduled(fixedRate = 4000)
+	@Autowired
+	VideoChannelService channelService;
+
+	//@Scheduled(fixedRate = 4000)
+	@Scheduled(cron = "0 35 09 * * *")
 	public void scheduleVideoHandling() {
 		Collection<VideoChannel> videoChannel = getAllVideoChannelsFromDatabase();
 		videoChannelGateway.getAllVideoChanelsFromDB(videoChannel);
-		 
 	}
-	
+
 	private List<VideoChannel> getAllVideoChannelsFromDatabase() {
-		LOGGER.info("Get all channel from database and pass the channel to single youtube channel");
-		/*run clawer4j*/
-		List<VideoChannel> videoChannels = new ArrayList<>();
-		VideoChannel channel1 = new VideoChannel("Am thuc viet nam","https://www.youtube.com/channel/UCxmlfcxN_K2JPbhbN8dB8RQ");
-		VideoChannel channel2 = new VideoChannel("Am thuc han quoc","https://www.youtube.com/channel/UC-2EWHDbHnx5JOeyWfLdIxQ");
-		videoChannels.add(channel1);
-		videoChannels.add(channel2);
-		
-		return videoChannels;
+		List<VideoChannel> channels = null;
+		try {
+			LOGGER.info("Get all channel from database and pass the channel to single youtube channel");
+			channels = channelService.getAllActiveChannel();
+
+		} catch (Exception e) {
+			LOGGER.error(e);
+		}
+		return channels;
 	}
-	
+
 }

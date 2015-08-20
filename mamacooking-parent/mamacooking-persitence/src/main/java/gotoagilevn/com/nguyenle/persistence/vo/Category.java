@@ -16,7 +16,7 @@ public class Category implements Serializable {
 	private String name;
 	private String description;
 	private String imagePath = "/default.jpg";
-
+	
 	public Category(String name) {
 		this.name = name;
 	}
